@@ -41,6 +41,8 @@
 
     typeEffect();
 
+
+    
     const scrollProgress = document.getElementById("scroll-progress");
     const topBtn = document.getElementById("topBtn");
 

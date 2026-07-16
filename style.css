@@ -51,6 +51,17 @@ body.light-mode .contact-item span,
 body.light-mode .project-tags span {
     color: var(--text);
 }
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(30%) saturate(120%); 
+}
+
 
 .bg-grid {
     position: fixed;
@@ -134,7 +145,7 @@ body::after {
 }
 
 .navbar:hover {
-    background: rgba(2, 6, 23, 0.9);
+    background: rgba(10, 17, 52, 0.9);
 }
 
 .logo {
@@ -285,10 +296,11 @@ body::after {
 }
 
 .hero-pills {
-    display: flex;
+    display:flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 24px;
+    height: fit-content;
 }
 
 .hero-pills span,
@@ -310,7 +322,7 @@ body::after {
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     backdrop-filter: blur(16px);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
     transform-style: preserve-3d;
 }
 
@@ -327,10 +339,10 @@ body::after {
     width: 120px;
     height: 120px;
     background: radial-gradient(circle, rgba(56,189,248,0.25), transparent 70%);
-    filter: blur(8px);
+    filter: blur(6px);
 }
 
-.hero-panel h3 {
+.hero-panel h2 {
     margin-bottom: 14px;
     font-size: 1.1rem;
 }
@@ -351,7 +363,7 @@ body::after {
 .section-heading h2 {
     font-size: clamp(1.8rem, 3.2vw, 2.55rem);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 
 .glass-card {
@@ -434,10 +446,23 @@ body::after {
     border-radius: 22px;
     height: 100%;
     min-height: 220px;
-    display: flex;
+    display:block;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.project-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-link:hover .project-card {
+    transform: perspective(1000px) rotateX(var(--rotX, 0deg)) rotateY(var(--rotY, 0deg)) translateY(-8px) scale(1.015);
+    border-color: rgba(56,189,248,0.37);
+    box-shadow: 0 22px 48px rgba(56, 189, 248, 0.18);
 }
 
 .skill-card:hover, .project-card:hover, .hero-panel:hover, .glass-card:hover {
@@ -451,7 +476,7 @@ body::after {
     height: 56px;
     border-radius: 16px;
     display: grid;
-    place-items: center;
+    place-items:center;
     margin-bottom: 18px;
     font-size: 1.4rem;
     color: white;
